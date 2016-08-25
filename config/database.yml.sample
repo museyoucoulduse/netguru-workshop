@@ -6,10 +6,15 @@ connection: &connection
   username: workshops
   password:
 
+connection2: &connection2
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
 development:
-  <<: *connection
+  <<: *connection2
   database: workshops_development
 
 test: &test
-  <<: *connection
+  <<: *connection2
   database: workshops_test

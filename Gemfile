@@ -11,13 +11,14 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'high_voltage'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'dotenv-rails'
 gem 'gretel'
+gem 'tzinfo-data'
 
 group :development do
   gem 'better_errors'
@@ -26,6 +27,7 @@ group :development do
   gem 'rails_layout'
   gem 'spring-commands-rspec'
   gem 'quiet_assets'
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
@@ -34,7 +36,6 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'spring'
-  gem 'web-console', '~> 2.0'
   gem 'sqlite3'
 end
 
