@@ -4,5 +4,12 @@ class StudentDecorator < BaseDecorator
   end
 
   def avg_notes(subject_item)
+    notes = subject_item.subject_item_notes.map(&:value)
+    result = notes.empty? ? 0 : (notes.inject(:+) / notes.count.to_f)
+    sprintf( "%0.02f", result)
+  end
+
+  def date_of_birth
+    birthdate ? birthdate.strftime('%Y-%m_%d') : '*'
   end
 end
