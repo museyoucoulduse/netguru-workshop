@@ -1,7 +1,9 @@
 class TeachersController < ApplicationController
+  # before_action :authenticate_user!
   expose(:teachers)
   expose(:teacher, attributes: :teacher_params)
   expose(:teacher_subject_items) { teacher.subject_items }
+  expose(:subject_items) { SubjectItem.not_assigned_or_assigned_to_teacher(teacher) }
 
   def create
     if teacher.save
