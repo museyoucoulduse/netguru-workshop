@@ -1,0 +1,20 @@
+connection: &connection
+  adapter: postgresql
+  encoding: unicode
+  host:     localhost
+  pool: 5
+  username: workshops
+  password:
+
+connection2: &connection2
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *connection2
+  database: db/development.sqlite3
+
+test: &test
+  <<: *connection2
+  database: db/test.sqlite3
