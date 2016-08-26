@@ -6,7 +6,7 @@
       %th= t('subject.title')
       %th= t('subjects.columns.avg_notes')
   %tbody
-    - student_subject_items.each do |subject_item|
+    - studen.participations.each do |subject_item|
       %tr
         %td= subject_item.title
         %td= student.decorate.avg_notes(subject_item)
