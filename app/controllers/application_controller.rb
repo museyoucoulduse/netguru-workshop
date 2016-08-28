@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   #before_action :is_unauthenticated, if: :unauthenticated_root_path
 
-  #decent_configuration { strategy DecentExposure::StrongParametersStrategy }
+#   decent_configuration { strategy DecentExposure::StrongParametersStrategy }
 
   def decent_configuration
   end

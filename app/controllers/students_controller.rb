@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
 
   def create
     if student.save
-      redirect_to student_path(params[:id]), notice: I18n.t('shared.created', resource: 'Student')
+      redirect_to student_path(student), notice: I18n.t('shared.created', resource: 'Student')
     else
       render :new
     end

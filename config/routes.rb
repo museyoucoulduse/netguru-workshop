@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       root :to => 'visitors#index', as: :authenticated_root
       resources :reports
       resources :students, :teachers do
-          get :subjects
+          get :subjects, controller: 'reports'
       end
 
       get 'visitors/index'
