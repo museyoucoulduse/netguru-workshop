@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   # before_action :authenticate_user!
-  expose(:teachers)
+  expose(:teachers) { Teacher.all }
   expose(:teacher, attributes: :teacher_params)
   expose(:teacher_subject_items) { teacher.subject_items }
   expose(:subject_items) { SubjectItem.not_assigned_or_assigned_to_teacher(teacher) }
@@ -29,6 +29,6 @@ class TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :academic_title, subject_item_ids: [])
+    params.require(:teacher).permit(:first_name, :last_name, :academic_title, :id, subject_item_ids: [])
   end
 end

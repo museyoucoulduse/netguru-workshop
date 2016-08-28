@@ -1,9 +1,9 @@
 class StudentsController < ApplicationController
   # before_action :authenticate_user!
-  expose(:students)
-  expose(:student, attributes: :student_params)
+  expose(:students) { Student.all }
+  expose(:student, attributes: [:student_params, :id])
   expose(:student_subject_items) { student.subject_items }
-  expose(:subject_items) { SubjectItems.all }
+  expose(:subject_items) { SubjectItem.all }
 
 
   def create
@@ -28,8 +28,11 @@ class StudentsController < ApplicationController
   end
 
   private
-
+  
+  def id
+    student.id
+  end
   def student_params
-    params.require(:student).permit(:first_name, :last_name, subject_ids: [])
+    params.require(:student).permit(:first_name, :last_name, :id, subject_ids: [])
   end
 end
