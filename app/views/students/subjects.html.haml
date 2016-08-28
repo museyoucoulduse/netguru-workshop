@@ -4,9 +4,9 @@
   %thead
     %tr
       %th= t('subject.title')
-      %th= t('subjects.columns.avg_notes')
+      %th= t('subject.column.avg_notes')
   %tbody
-    - studen.participations.each do |subject_item|
+    - student.participations.each do |subject_item|
       %tr
         %td= subject_item.title
         %td= student.decorate.avg_notes(subject_item)

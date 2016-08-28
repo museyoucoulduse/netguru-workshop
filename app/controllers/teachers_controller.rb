@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   expose(:teachers) { Teacher.all }
   expose(:teacher, attributes: :teacher_params)
   expose(:teacher_subject_items) { teacher.subject_items }
