@@ -40,6 +40,6 @@ feature 'User edits student' do
     click_button 'Update Student'
 
     visit report_subjects_path
-    expect(page).to have_content 'Jan Abacki'
+    expect(page).to have_no_content 'Jan Abacki'
   end
 end
