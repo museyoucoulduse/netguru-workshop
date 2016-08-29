@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root :to => 'visitors#index', as: :authenticated_root
-      resources :reports do
-        get :subjects
-      end
+      get 'reports/subjects', action: :subjects, controller: 'reports', as: :report_subjects
       resources :students, :teachers do
           get :subjects
       end

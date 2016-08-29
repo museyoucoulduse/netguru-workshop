@@ -6,7 +6,7 @@
       %th= t('subject.column.title')
       %th= t('subject.column.avg_notes')
   %tbody
-    - student.participations.each do |subject_item|
+    - student_subject_items.each do |subject_item|
       %tr
       
         %td= subject_item.title
