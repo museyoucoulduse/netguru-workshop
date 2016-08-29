@@ -15,12 +15,11 @@ class StudentsController < ApplicationController
   end
 
   def update
-    if student.save
-      flash[:success] = "Hey, #{student.first_name}"
-      redirect_to student_path(student), notice: I18n.t('shared.updated', resource: 'Student')
+    if student.update(student_params)
+      # flash[:success] = "Hey, #{student.first_name}"
+      redirect_to student_path(student), notice: I18n.t('shared.updated', resource: 'Student'), success: "Hey, #{student.first_name}"
     else
-      flash[:error] = "can't be blank"
-      render :edit
+      render :edit, error: "can't be blank"
     end
   end
 
@@ -32,6 +31,6 @@ class StudentsController < ApplicationController
   private
   
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :id, subject_ids: [])
+    params.require(:student).permit(:first_name, :last_name, :id, :title, subject_ids: [])
   end
 end
