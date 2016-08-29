@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
   expose(:students) { Student.all }
-  expose(:student, attributes: [:student_params, :id])
+  expose(:student, attributes: :student_params)
   expose(:student_subject_items) { student.subject_items }
   expose(:subject_items) { SubjectItem.all }
   expose(:subject_item)
@@ -17,7 +17,6 @@ class StudentsController < ApplicationController
 
   def update
     if student.update(student_params)
-      # flash[:success] = "Hey, #{student.first_name}"
       redirect_to student_path(student), notice: I18n.t('shared.updated', resource: 'Student'), success: "Hey, #{student.first_name}"
     else
       render :edit, error: "can't be blank"
@@ -32,6 +31,6 @@ class StudentsController < ApplicationController
   private
   
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :id, :title, subject_ids: [])
+    params.require(:student).permit(:first_name, :last_name, :birthdate, :id, :title, subject_ids: [])
   end
 end
